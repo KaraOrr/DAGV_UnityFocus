@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CameraOrbit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public float lookSensitivity;
+   public float minXLook;
+   public float maxXLook;
+   public Transform camAnchor;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public bool invertXRotation;
+
+   private float curXRot;
+
+   void LateUpdate ()
+   {
+        float x = Input.GetAxis("Mouse X");
+        float y = Input.GetAxis("Mouse Y");
+
+        transform.eulerAngles += vector3.up * x * lookSensitivity;
+   }
 }
