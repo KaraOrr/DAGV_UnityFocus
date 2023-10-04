@@ -12,6 +12,7 @@ public class new : MonoBehaviour
     {
         Move();
     }
+    
     void Move()
     {
         float x = Input.GetAxis("Horizontal");
