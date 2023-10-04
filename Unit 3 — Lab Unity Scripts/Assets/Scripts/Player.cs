@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class new : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float moveSpeed;
 
@@ -12,13 +12,15 @@ public class new : MonoBehaviour
     {
         Move();
     }
-    
+
     void Move()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        vector3 dir = new vector3(x, 0, z) * moveSpeed;
+        vector3 dir = transform.right * x + transform.forward * z;
+        dir *= movespeed;
+        dir.y = rig.velocity.y;
 
         rig.velocity = dir;
     }
