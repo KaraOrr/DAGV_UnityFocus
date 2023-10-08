@@ -37,17 +37,11 @@ public class IDK : MonoBehaviour
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
     private bool exitingSlope;
-    
-
     public Transform orientation;
-
     float horizontalInput;
     float verticalInput;
-
     Vector3 moveDirection;
-
     Rigidbody rb;
-
     public MovementState state;
     public enum MovementState
     {
@@ -57,7 +51,7 @@ public class IDK : MonoBehaviour
         air
     }
 
-    private void Start()
+    private void Start() //setting up true and false stuff
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -69,14 +63,14 @@ public class IDK : MonoBehaviour
 
     private void Update()
     {
-        // ground check
+        // GROUND CHECK
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         MyInput();
         SpeedControl();
         StateHandler();
 
-        // handle drag
+        // DRAG
         if (grounded)
             rb.drag = groundDrag;
         else
@@ -93,7 +87,7 @@ public class IDK : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // when to jump
+        // WHEN TO JUMP
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
@@ -103,7 +97,7 @@ public class IDK : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        // start crouch
+        // When crouch key is pressed down, CROUCH
         if (Input.GetKeyDown(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
@@ -111,7 +105,7 @@ public class IDK : MonoBehaviour
             readyToJump = false;
         }
 
-        // stop crouch
+        // when crouch key is up, DONT CROUCH
         if (Input.GetKeyUp(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
@@ -121,7 +115,7 @@ public class IDK : MonoBehaviour
 
     private void StateHandler()
     {
-        // Mode - Crouching
+        // MODE - Crouching
         if (Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
@@ -129,14 +123,14 @@ public class IDK : MonoBehaviour
             
         }
 
-        // Mode - Sprinting
+        // MODE - Sprinting
         else if(grounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
         }
 
-        // Mode - Walking
+        // MODE - Walking
         else
         {
             state = MovementState.walking;
@@ -208,8 +202,9 @@ public class IDK : MonoBehaviour
 
         exitingSlope = false;
     }
-
-    private bool OnSlope()
+    
+    //Slope functions
+    private bool OnSlope() //Slope functions
     {
         if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
