@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraOrbit : MonoBehaviour
+public class CameraOrbit2 : MonoBehaviour
 {
    public float lookSensitivity;
    public float minXLook;
