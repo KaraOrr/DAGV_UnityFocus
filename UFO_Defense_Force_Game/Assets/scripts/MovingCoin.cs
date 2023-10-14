@@ -13,7 +13,6 @@ public class MovingCoin : MonoBehaviour
 void Start ()
 {
     Coin = this.gameObject;
-    Debug.Log(collected);
 }
 void Update() 
 {
