@@ -20,21 +20,20 @@ public class PlayerController : MonoBehaviour
     //left side wall
         if(transform.position.x < -xRange)
         {
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-xRange,transform.position.y, transform.position.z);
         }
     //right side wall
         if(transform.position.x > xRange)
         {
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+            transform.position = new Vector3(xRange,transform.position.y, transform.position.z);
         }
         //space = fire laser bolt
         if(Input.GetKeyDown(KeyCode.Space))
         {
             //create laserbolt at the blaster transform position maintaining the objects rotation
-            Instantiate(laserBolt, blaster.position, laserBolt.transform.rotation);
+            Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation);
         }
     }
-    
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
