@@ -10,29 +10,30 @@ public class MovingCoin : MonoBehaviour
     public float delay = 5f;
     public float speed = 5f;
     float nextTimeTospawn;
-void Start ()
-{
-    Coin = this.gameObject;
-}
-void Update() 
-{
-    // Moves the object forward at two units per second.
-    transform.Translate(Vector3.forward * speed * Time.deltaTime);
-}
-void OnCollisionEnter(Collision collision)
+    void Start ()
     {
-        Debug.Log("Entered collision with " + collision.gameObject.name);
-        Destroy(Coin); //object dissappears
+        Coin = this.gameObject;
     }
-
-void OnTriggerEnter(Collider other)
+    void Update() 
     {
-        Debug.Log("Entered collision with " + other.gameObject.name);
-        Destroy(Coin); //object dissappears
+        // Moves the object forward at two units per second.
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+    void OnCollisionEnter(Collision collisioninfo)
+        {
+            Debug.Log("Entered collision with " + collisioninfo.gameObject.name);
+            Destroy(Coin); //object dissappears
+        }
+
+    void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Entered collision with " + other.gameObject.name);
+            Destroy(Coin); //object dissappears
+            collected++;
+            Debug.Log("Coins: " + collected);
+        }
 
 }
-//can i drop out of university now?
 
 
 
