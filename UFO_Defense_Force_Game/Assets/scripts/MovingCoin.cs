@@ -4,34 +4,13 @@ using UnityEngine;
 
 public class MovingCoin : MonoBehaviour
 {
-    
-    public GameObject Coin;
-    public float collected = 0;
-    public float delay = 5f;
-    public float speed = 5f;
-    float nextTimeTospawn;
-    void Start ()
-    {
-        Coin = this.gameObject;
-    }
-    void Update() 
-    {
-        // Moves the object forward at two units per second.
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-    }
-    void OnCollisionEnter(Collision collisioninfo)
-        {
-            Debug.Log("Entered collision with " + collisioninfo.gameObject.name);
-            Destroy(Coin); //object dissappears
-        }
+    public float speed = 50.0f;
 
-    void OnTriggerEnter(Collider other)
-        {
-            Debug.Log("Entered collision with " + other.gameObject.name);
-            Destroy(Coin); //object dissappears
-            collected++;
-            Debug.Log("Coins: " + collected);
-        }
+    void Update()
+    {
+        //move Coin forward
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+    }
 
 }
 
