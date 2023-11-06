@@ -4,10 +4,12 @@ public class destroyOUTOFBOUNDS : MonoBehaviour
 {
     public float topBounds = 30.0f;
     public float lowerBounds = -20.0f;
-    public GameManager gameManager;
+    public soundBehavior soundScript;
+    private GameManager gameManager;
 
     void Start()
     {
+        soundScript = GameObject.Find("soundManager").GetComponent<soundBehavior>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -25,7 +27,8 @@ public class destroyOUTOFBOUNDS : MonoBehaviour
         }
         else if(transform.position.z < lowerBounds && gameObject.CompareTag("UFO"))
         {
-            Debug.Log("game over");
+            Debug.Log("outofbounds");
+            soundScript.PlayOutSound();
             //if ufo out of bounds
             Time.timeScale = 0;
             //enable gameovertext

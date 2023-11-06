@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
@@ -15,14 +13,11 @@ public class EnemySpawnManager : MonoBehaviour
     {
         InvokeRepeating("SpawnRandomUFO", startDelay, spawnInterval);
     }
-    void Update()
-    {
 
-    }
 
     void SpawnRandomUFO()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX,spawnRangeX),1,spawnPosZ);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX,spawnRangeX),4,spawnPosZ);
         int ufoIndex = Random.Range(0,ufoPrefabs.Length); //picks a random ufo from the array
         Instantiate(ufoPrefabs[ufoIndex],spawnPos, ufoPrefabs[ufoIndex].transform.rotation); // Spawns a indexed UFO from the array a random location on the X axis
     } 

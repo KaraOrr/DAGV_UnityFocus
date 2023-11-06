@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1673702674951579018}
   - component: {fileID: 4637847664589754749}
   - component: {fileID: 3188157223150275682}
+  - component: {fileID: 2999323939813921930}
   - component: {fileID: 8215661716028516169}
   - component: {fileID: 3052496696251107333}
   - component: {fileID: -1542452744412997460}
   - component: {fileID: 1646863835853684113}
-  - component: {fileID: 2999323939813921930}
   m_Layer: 0
   m_Name: star
   m_TagString: star
@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6008223180081252711}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.1, y: 1, z: -11.5}
-  m_LocalScale: {x: 0.59341, y: 0.59341, z: 0.59341}
+  m_LocalPosition: {x: -0.1, y: 4, z: -11.5}
+  m_LocalScale: {x: 0.59341, y: 0.5, z: 0.59341}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +88,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2999323939813921930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008223180081252711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58d45b54b33e0443824ad3d0d2e2d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToGive: 50
+  soundScript: {fileID: 0}
 --- !u!135 &8215661716028516169
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -144,17 +158,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 30
   lowerBounds: -25
+  outSound: {fileID: 0}
   gameManager: {fileID: 0}
---- !u!114 &2999323939813921930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6008223180081252711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58d45b54b33e0443824ad3d0d2e2d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreToGive: 50

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 8452620457227346749}
   - component: {fileID: 8029547518394975633}
   - component: {fileID: 7869036632428301360}
-  - component: {fileID: 787876081105495070}
+  - component: {fileID: 1445213603723854871}
   - component: {fileID: 6616567387790089981}
   - component: {fileID: -1373260682545305384}
+  - component: {fileID: 787876081105495070}
   - component: {fileID: 7423809562179434944}
-  - component: {fileID: 1445213603723854871}
   m_Layer: 0
   m_Name: MotherShip
   m_TagString: UFO
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444712009512875807}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 4.325407, y: 1.384374, z: 4.325407}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88,19 +88,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &787876081105495070
-SphereCollider:
+--- !u!114 &1445213603723854871
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444712009512875807}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58d45b54b33e0443824ad3d0d2e2d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToGive: 5
+  soundScript: {fileID: 0}
 --- !u!114 &6616567387790089981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71d72718ddbc7a4db2e247cde2b30b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2.41
 --- !u!114 &-1373260682545305384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +129,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 40
   lowerBounds: -25
+  outSound: {fileID: 8300000, guid: f204cea2f09ed6549a8abdd06266ac49, type: 3}
   gameManager: {fileID: 0}
+--- !u!135 &787876081105495070
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444712009512875807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7423809562179434944
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,16 +160,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1445213603723854871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444712009512875807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58d45b54b33e0443824ad3d0d2e2d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreToGive: 5

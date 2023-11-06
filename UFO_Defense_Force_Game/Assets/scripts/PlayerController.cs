@@ -8,17 +8,22 @@ public class PlayerController : MonoBehaviour
     public float speed = 25;
     
     public float xRange = 23;
-
-    
+    //audio
+    public AudioClip shootSound;
+    public AudioClip explodeSound;
+    private AudioSource playerAudio;
+    //
     public Transform blaster;
     
     public GameObject lazerBolt;
     
     public GameManager gameManager;
-    
+
+    public ParticleSystem explosionParticle;
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        playerAudio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -44,12 +49,24 @@ public class PlayerController : MonoBehaviour
         {
             //create laserbolt at the blaster transform position maintaining the objects rotation
             Instantiate(lazerBolt, blaster.transform.position, lazerBolt.transform.rotation);
+            playerAudio.PlayOneShot(shootSound, 1.0f);
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) 
     {
-        Debug.Log("potatoes");
-        Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("UFO"))
+        {
+            Debug.Log("bad collision");
+            speed = 0;
+            playerAudio.PlayOneShot(explodeSound, 1.0f);
+            gameManager.isGameOver = true;
+            explosionParticle.Play();
+        }
+        else
+        {
+            Debug.Log("potatoes");
+            Destroy(other.gameObject);
+        }
     }
 }
 
